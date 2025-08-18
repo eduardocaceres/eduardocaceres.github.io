@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Abouts on x</title>
+    <link>http://localhost:1313/about/</link>
+    <description>Recent content in Abouts on x</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>architect@datahubstudio.com (NightFall Data Architect)</managingEditor>
+    <webMaster>architect@datahubstudio.com (NightFall Data Architect)</webMaster>
+    <lastBuildDate>Sun, 17 Aug 2025 23:12:12 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/about/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/about/</link>
+      <pubDate>Sun, 17 Aug 2025 23:12:12 -0400</pubDate><author>architect@datahubstudio.com (NightFall Data Architect)</author>
+      <guid>http://localhost:1313/about/about/</guid>
+      <description>&lt;p&gt;Education:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;M.S, Compueter Science &amp;ndash;Sacread Heart University (May, 2001)&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;B.S, Software Engineering &amp;ndash;UTN (January, 1995)&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;A.S, Physics &amp;ndash;NCTC (January, 1997)&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;Work Experience:&lt;/p&gt;&#xA;&lt;p&gt;My name is Daniel Càceres a seasoned Data Architect with 12+ years of experience architecting scalable, cloud-native data solutions. Expert in designing real-time data pipelines, implementing data governance frameworks, and leveraging AI/ML for predictive analytics. Spearheaded a data modernization initiative that reduced data processing time by 80% and increased data accuracy by 25%. Adept at leading cross-functional teams to deliver innovative, business-driven data strategies.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

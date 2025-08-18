@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on x</title>
+    <link>http://localhost:1313/blog/</link>
+    <description>Recent content in Blogs on x</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>architect@datahubstudio.com (NightFall Data Architect)</managingEditor>
+    <webMaster>architect@datahubstudio.com (NightFall Data Architect)</webMaster>
+    <lastBuildDate>Mon, 18 Aug 2025 12:27:56 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Simple Architecture</title>
+      <link>http://localhost:1313/blog/simple_architecture/</link>
+      <pubDate>Mon, 18 Aug 2025 12:27:56 -0400</pubDate><author>architect@datahubstudio.com (NightFall Data Architect)</author>
+      <guid>http://localhost:1313/blog/simple_architecture/</guid>
+      <description>&lt;p&gt;Clarity beats complexity. simplicity and clarity help your Data Architecture land powerfully.&lt;/p&gt;&#xA;&lt;p&gt;Simple architectures fulfill business requirements using technology choices that are easy for delivery and maintenance teams to work with, without added features or complications&lt;/p&gt;&#xA;&lt;p&gt;I published the first post of this series on the Salesforce Architects blog, but decided to change things up a bit and publish the rest from my personal account instead. Here’s part 2&amp;hellip;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
