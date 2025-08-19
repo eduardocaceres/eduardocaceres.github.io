@@ -6,8 +6,8 @@
     <description>Recent content in Categories on x</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <managingEditor>architect@datahubstudio.com (NightFall Data Architect)</managingEditor>
-    <webMaster>architect@datahubstudio.com (NightFall Data Architect)</webMaster>
+    <managingEditor>architect@datahubstudio.com (The Simple Architect)</managingEditor>
+    <webMaster>architect@datahubstudio.com (The Simple Architect)</webMaster>
     <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
