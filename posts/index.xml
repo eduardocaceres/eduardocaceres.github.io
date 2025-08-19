@@ -1,28 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on x</title>
-    <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Posts on x</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <managingEditor>architect@datahubstudio.com (The Simple Architect)</managingEditor>
-    <webMaster>architect@datahubstudio.com (The Simple Architect)</webMaster>
-    <lastBuildDate>Mon, 18 Aug 2025 12:15:27 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Snowflake Dynamic tables</title>
-      <link>http://localhost:1313/posts/snowflakedynamictables/</link>
-      <pubDate>Mon, 18 Aug 2025 12:15:27 -0400</pubDate><author>architect@datahubstudio.com (The Simple Architect)</author>
-      <guid>http://localhost:1313/posts/snowflakedynamictables/</guid>
-      <description>&lt;p&gt;What’s New with Snowflake Dynamic Tables&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Smarter Incremental Refreshes&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Snowflake’s fine-tuned the incremental engine driving Dynamic Tables. Snowflake updates the dynamic table with only the changes since the last refresh, making it ideal for large datasets with frequent small updates. Less data gets reprocessed, so refreshes are quicker and don’t hammer your warehouse as hard.&lt;/p&gt;&#xA;&lt;p&gt;Why it matters: App devs get fresher data for UIs without lag spikes. Data scientists see faster updates for models. Data engineers save on compute costs.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Salesforce CDC</title>
-      <link>http://localhost:1313/posts/salesforcecdc/</link>
-      <pubDate>Sun, 17 Aug 2025 22:01:19 -0400</pubDate><author>architect@datahubstudio.com (The Simple Architect)</author>
-      <guid>http://localhost:1313/posts/salesforcecdc/</guid>
-      <description>&lt;p&gt;Why it is needed?&#xA;Change Data Capture is a streaming product on the Lightning Platform that enables you to efficiently integrate your Salesforce data with external systems.&lt;/p&gt;&#xA;&lt;p&gt;Change Data Capture publishes events for changes in Salesforce records corresponding to create, update, delete, and undelete operations to update data in an external system instead of doing periodic exports or API polling.&lt;/p&gt;&#xA;&lt;p&gt;When to use it?&lt;/p&gt;&#xA;&lt;p&gt;Receive notifications of Salesforce record changes, including create, update, delete, and undelete operations.&#xA;Capture all field changes for all records.&#xA;Get broad access to all data regardless of sharing rules.&#xA;Get information about the change in the event header, such as the origin of the change, so you can ignore changes that your client generates.&#xA;Perform data updates using transaction boundaries when more than one operation is part of the same transaction.&#xA;Use a versioned event schema.&#xA;Subscribe to mass changes in a scalable way.&#xA;Get access to retained events for up to 3 days.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on x</title><link>https://eduardocaceres.github.io/posts/</link><description>Recent content in Posts on x</description><generator>Hugo</generator><language>en-us</language><managingEditor>architect@datahubstudio.com (The Simple Architect)</managingEditor><webMaster>architect@datahubstudio.com (The Simple Architect)</webMaster><lastBuildDate>Mon, 18 Aug 2025 12:15:27 -0400</lastBuildDate><atom:link href="https://eduardocaceres.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Snowflake Dynamic tables</title><link>https://eduardocaceres.github.io/posts/snowflakedynamictables/</link><pubDate>Mon, 18 Aug 2025 12:15:27 -0400</pubDate><author>architect@datahubstudio.com (The Simple Architect)</author><guid>https://eduardocaceres.github.io/posts/snowflakedynamictables/</guid><description>&lt;p>What’s New with Snowflake Dynamic Tables&lt;/p>
+&lt;ol>
+&lt;li>Smarter Incremental Refreshes&lt;/li>
+&lt;/ol>
+&lt;p>Snowflake’s fine-tuned the incremental engine driving Dynamic Tables. Snowflake updates the dynamic table with only the changes since the last refresh, making it ideal for large datasets with frequent small updates. Less data gets reprocessed, so refreshes are quicker and don’t hammer your warehouse as hard.&lt;/p>
+&lt;p>Why it matters: App devs get fresher data for UIs without lag spikes. Data scientists see faster updates for models. Data engineers save on compute costs.&lt;/p></description></item><item><title>Salesforce CDC</title><link>https://eduardocaceres.github.io/posts/salesforcecdc/</link><pubDate>Sun, 17 Aug 2025 22:01:19 -0400</pubDate><author>architect@datahubstudio.com (The Simple Architect)</author><guid>https://eduardocaceres.github.io/posts/salesforcecdc/</guid><description>&lt;p>Why it is needed?
+Change Data Capture is a streaming product on the Lightning Platform that enables you to efficiently integrate your Salesforce data with external systems.&lt;/p>
+&lt;p>Change Data Capture publishes events for changes in Salesforce records corresponding to create, update, delete, and undelete operations to update data in an external system instead of doing periodic exports or API polling.&lt;/p>
+&lt;p>When to use it?&lt;/p>
+&lt;p>Receive notifications of Salesforce record changes, including create, update, delete, and undelete operations.
+Capture all field changes for all records.
+Get broad access to all data regardless of sharing rules.
+Get information about the change in the event header, such as the origin of the change, so you can ignore changes that your client generates.
+Perform data updates using transaction boundaries when more than one operation is part of the same transaction.
+Use a versioned event schema.
+Subscribe to mass changes in a scalable way.
+Get access to retained events for up to 3 days.&lt;/p></description></item></channel></rss>
