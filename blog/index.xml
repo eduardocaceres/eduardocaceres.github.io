@@ -1,2 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blogs on x</title><link>https://eduardocaceres.github.io/blog/</link><description>Recent content in Blogs on x</description><generator>Hugo</generator><language>en-us</language><managingEditor>architect@datahubstudio.com (The Simple Architect)</managingEditor><webMaster>architect@datahubstudio.com (The Simple Architect)</webMaster><lastBuildDate>Tue, 19 Aug 2025 14:04:50 -0400</lastBuildDate><atom:link href="https://eduardocaceres.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Repetition</title><link>https://eduardocaceres.github.io/blog/repetition/</link><pubDate>Tue, 19 Aug 2025 14:04:50 -0400</pubDate><author>architect@datahubstudio.com (The Simple Architect)</author><guid>https://eduardocaceres.github.io/blog/repetition/</guid><description>&lt;p>Discover you purpose in life, find something that makes you wake up every day because your purpose fuels you.&lt;/p>
-&lt;p>Repetition is the mother of all skill. And it’s simple. It really is.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on x</title>
+    <link>https://eduardocaceres.github.io/blog/</link>
+    <description>Recent content in Blogs on x</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>architect@datahubstudio.com (The Simple Architect)</managingEditor>
+    <webMaster>architect@datahubstudio.com (The Simple Architect)</webMaster>
+    <lastBuildDate>Tue, 19 Aug 2025 14:04:50 -0400</lastBuildDate>
+    <atom:link href="https://eduardocaceres.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Repetition</title>
+      <link>https://eduardocaceres.github.io/blog/repetition/</link>
+      <pubDate>Tue, 19 Aug 2025 14:04:50 -0400</pubDate><author>architect@datahubstudio.com (The Simple Architect)</author>
+      <guid>https://eduardocaceres.github.io/blog/repetition/</guid>
+      <description>&lt;p&gt;Discover you purpose in life, find something that makes you wake up every day because your purpose fuels you.&lt;/p&gt;&#xA;&lt;p&gt;Repetition is the mother of all skill. And it’s simple. It really is.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

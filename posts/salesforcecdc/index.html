@@ -1,16 +1,165 @@
-<!doctype html><html lang=en-us><head><title>Salesforce CDC | The Simple Architect</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Data Architecture"><meta name=generator content="Hugo 0.148.2"><link rel=canonical href=https://eduardocaceres.github.io/posts/salesforcecdc/><link href=/css/style.min.5c1fa9bba2d0e854fe30b3d6316ab0114a2a5f25c9a98275badeadb66f2ec725.css rel=stylesheet></head><body><div class=flexWrapper><header class=headerWrapper><div class=header><div><a class=terminal href=/><span>dc@datahubstudio.io ~ $</span></a></div><input class=side-menu type=checkbox id=side-menu>
-<label class=hamb for=side-menu><span class=hamb-line></span></label><nav class=headerLinks><ul><li><a href=https://eduardocaceres.github.io/about title>~/about</a></li><li><a href=https://eduardocaceres.github.io/blog title>~/blog</a></li><li><a href=https://eduardocaceres.github.io/posts title>~/posts</a></li></ul></nav></div></header><div class=content><main class=main><div class=postWrapper><h1>Salesforce CDC</h1><section class=postMetadata><dl><dt>published</dt><dd><time datetime=2025-08-17>August 17, 2025</time></dd><dt>reading time</dt><dd>2 minutes</dd></dl></section><div><p>Why it is needed?
-Change Data Capture is a streaming product on the Lightning Platform that enables you to efficiently integrate your Salesforce data with external systems.</p><p>Change Data Capture publishes events for changes in Salesforce records corresponding to create, update, delete, and undelete operations to update data in an external system instead of doing periodic exports or API polling.</p><p>When to use it?</p><p>Receive notifications of Salesforce record changes, including create, update, delete, and undelete operations.
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>
+Salesforce CDC | The Simple Architect
+</title>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Data Architecture">
+
+<meta name="generator" content="Hugo 0.148.2">
+
+
+<link rel="canonical" href="https://eduardocaceres.github.io/posts/salesforcecdc/" >
+
+
+
+
+<link href="/css/style.min.5c1fa9bba2d0e854fe30b3d6316ab0114a2a5f25c9a98275badeadb66f2ec725.css" rel="stylesheet">
+
+
+
+
+</head>
+
+<body>
+
+    <div class="flexWrapper">
+        <header class="headerWrapper">
+    <div class="header">
+        <div>
+            <a class="terminal" href="/">
+                <span>dc@datahubstudio.io ~ $</span>
+            </a>
+        </div>
+        <input class="side-menu" type="checkbox" id="side-menu">
+        <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+        <nav class="headerLinks">
+            <ul>
+                
+                <li>
+                    <a href="https://eduardocaceres.github.io/about" title="" >
+                        ~/about</a>
+                </li>
+                
+                <li>
+                    <a href="https://eduardocaceres.github.io/blog" title="" >
+                        ~/blog</a>
+                </li>
+                
+                <li>
+                    <a href="https://eduardocaceres.github.io/posts" title="" >
+                        ~/posts</a>
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <main class="main">
+                
+<div class="postWrapper">
+    <h1>Salesforce CDC</h1>
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <section class="postMetadata">
+        <dl>
+            
+            
+            
+            
+                <dt>published</dt>
+                
+                <dd><time datetime="2025-08-17">August 17, 2025</time></dd>
+            
+            
+                <dt>reading time</dt>
+                <dd>2 minutes</dd>
+            
+        </dl>
+    </section>
+    
+    <div>
+        <p>Why it is needed?
+Change Data Capture is a streaming product on the Lightning Platform that enables you to efficiently integrate your Salesforce data with external systems.</p>
+<p>Change Data Capture publishes events for changes in Salesforce records corresponding to create, update, delete, and undelete operations to update data in an external system instead of doing periodic exports or API polling.</p>
+<p>When to use it?</p>
+<p>Receive notifications of Salesforce record changes, including create, update, delete, and undelete operations.
 Capture all field changes for all records.
 Get broad access to all data regardless of sharing rules.
 Get information about the change in the event header, such as the origin of the change, so you can ignore changes that your client generates.
 Perform data updates using transaction boundaries when more than one operation is part of the same transaction.
 Use a versioned event schema.
 Subscribe to mass changes in a scalable way.
-Get access to retained events for up to 3 days.</p><p>Select Objects for Change Notifications in the User Interface
+Get access to retained events for up to 3 days.</p>
+<p>Select Objects for Change Notifications in the User Interface
 From Setup, enter Change Data Capture in the Quick Find box, and click Change Data Capture.
-The Available Entities list shows the objects available in your Salesforce org for Change Data Capture. You can select up to five entities, including standard and custom objects.</p><p>To enable more entities, contact Salesforce to purchase an add-on license. The add-on license removes the limit on the number of entities you can select. Also, it increases the CometD event delivery allocation. With the add-on license, you can select up to 10 entities at a time in the Available Entities list. After selecting the first 10 entities, you can add more.</p><p>Salesforce CDC Integration with kafka and Snowflake.</p><blockquote><p>[!IMPORTANT]
+The Available Entities list shows the objects available in your Salesforce org for Change Data Capture. You can select up to five entities, including standard and custom objects.</p>
+<p>To enable more entities, contact Salesforce to purchase an add-on license. The add-on license removes the limit on the number of entities you can select. Also, it increases the CometD event delivery allocation. With the add-on license, you can select up to 10 entities at a time in the Available Entities list. After selecting the first 10 entities, you can add more.</p>
+<p>Salesforce CDC Integration with kafka and Snowflake.</p>
+<blockquote>
+<p>[!IMPORTANT]
 The data flow depicts the architecture pattern use
-to unified the CDC object with the Snapshot object using Snowflake dynamic tables.</p></blockquote><p><img src=/assets/pictures/salesforce-designpattern-cdc-snowflake.png alt="Alt text"></p></div></div></main></div><footer class=footer><span>© 2025 The Simple Architect, Built with
-<a href=https://gohugo.io class=footerLink>Hugo</a> and
-<a href=https://github.com/LordMathis/hugo-theme-nightfall class=footerLink>Nightfall</a> theme</span></footer></div></body></html>
+to unified the CDC object with the Snapshot object using Snowflake dynamic tables.</p></blockquote>
+<p><img src="/assets/pictures/salesforce-designpattern-cdc-snowflake.png" alt="Alt text"></p>
+
+    </div>
+</div>
+
+            </main>
+        </div>
+
+
+        <footer class="footer">
+    
+        <span>
+            © 2025 The Simple Architect, Built with
+            <a href="https://gohugo.io" class="footerLink">Hugo</a> and
+            <a href="https://github.com/LordMathis/hugo-theme-nightfall" class="footerLink">Nightfall</a> theme
+        </span>
+    
+</footer>
+    </div>
+
+</body>
+
+</html>
