@@ -4,14 +4,13 @@
 &lt;li>Smarter Incremental Refreshes&lt;/li>
 &lt;/ol>
 &lt;p>Snowflake’s fine-tuned the incremental engine driving Dynamic Tables. Snowflake updates the dynamic table with only the changes since the last refresh, making it ideal for large datasets with frequent small updates. Less data gets reprocessed, so refreshes are quicker and don’t hammer your warehouse as hard.&lt;/p>
-&lt;p>Why it matters: App devs get fresher data for UIs without lag spikes. Data scientists see faster updates for models. Data engineers save on compute costs.&lt;/p></description></item><item><title>About</title><link>https://eduardocaceres.github.io/about/about/</link><pubDate>Sun, 17 Aug 2025 23:12:12 -0400</pubDate><author>architect@datahubstudio.com (The Simple Architect)</author><guid>https://eduardocaceres.github.io/about/about/</guid><description>&lt;p>Education:&lt;/p>
-&lt;blockquote>
-&lt;p>M.S, Compueter Science &amp;ndash;Sacred Heart University (May, 2001)&lt;/p>&lt;/blockquote>
-&lt;blockquote>
-&lt;p>B.S, Software Engineering &amp;ndash;UTN (January, 1995)&lt;/p>&lt;/blockquote>
-&lt;blockquote>
-&lt;p>A.S, Physics &amp;ndash;NCTC (January, 1997)&lt;/p>&lt;/blockquote>
-&lt;p>Work Experience:&lt;/p>
+&lt;p>Why it matters: App devs get fresher data for UIs without lag spikes. Data scientists see faster updates for models. Data engineers save on compute costs.&lt;/p></description></item><item><title>About me</title><link>https://eduardocaceres.github.io/about/about/</link><pubDate>Sun, 17 Aug 2025 23:12:12 -0400</pubDate><author>architect@datahubstudio.com (The Simple Architect)</author><guid>https://eduardocaceres.github.io/about/about/</guid><description>&lt;h2 id="education">Education:&lt;/h2>
+&lt;ul>
+&lt;li>M.S, Computer Science –Sacred Heart University (May, 2001)&lt;/li>
+&lt;li>B.S, Software Engineering –UTN (January, 1995)&lt;/li>
+&lt;li>A.S, Physics –NCTC (January, 1997)&lt;/li>
+&lt;/ul>
+&lt;h2 id="work-experience">Work Experience:&lt;/h2>
 &lt;p>My name is Daniel Càceres a seasoned Data Architect with 12+ years of experience architecting scalable, cloud-native data solutions. Expert in designing real-time data pipelines, implementing data governance frameworks, and leveraging AI/ML for predictive analytics. Spearheaded a data modernization initiative that reduced data processing time by 80% and increased data accuracy by 25%. Adept at leading cross-functional teams to deliver innovative, business-driven data strategies.&lt;/p></description></item><item><title>Salesforce CDC</title><link>https://eduardocaceres.github.io/posts/salesforcecdc/</link><pubDate>Sun, 17 Aug 2025 22:01:19 -0400</pubDate><author>architect@datahubstudio.com (The Simple Architect)</author><guid>https://eduardocaceres.github.io/posts/salesforcecdc/</guid><description>&lt;p>Why it is needed?
 Change Data Capture is a streaming product on the Lightning Platform that enables you to efficiently integrate your Salesforce data with external systems.&lt;/p>
 &lt;p>Change Data Capture publishes events for changes in Salesforce records corresponding to create, update, delete, and undelete operations to update data in an external system instead of doing periodic exports or API polling.&lt;/p>
