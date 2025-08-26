@@ -3,15 +3,11 @@
 &lt;li>Smarter Incremental Refreshes&lt;/li>
 &lt;/ol>
 &lt;p>Snowflake’s fine-tuned the incremental engine driving Dynamic Tables. Snowflake updates the dynamic table with only the changes since the last refresh, making it ideal for large datasets with frequent small updates. Less data gets reprocessed, so refreshes are quicker and don’t hammer your warehouse as hard.&lt;/p>
-&lt;p>Why it matters: App devs get fresher data for UIs without lag spikes. Data scientists see faster updates for models. Data engineers save on compute costs.&lt;/p></description></item><item><title>Salesforce CDC &amp; Snowflake Dynamic tables</title><link>https://eduardocaceres.github.io/posts/salesforcecdc/</link><pubDate>Sun, 17 Aug 2025 22:01:19 -0400</pubDate><author>architect@datahubstudio.com (The Simple Architect)</author><guid>https://eduardocaceres.github.io/posts/salesforcecdc/</guid><description>&lt;p>Why it is needed?
-Change Data Capture is a streaming product on the Lightning Platform that enables you to efficiently integrate your Salesforce data with external systems.&lt;/p>
+&lt;p>Why it matters: App devs get fresher data for UIs without lag spikes. Data scientists see faster updates for models. Data engineers save on compute costs.&lt;/p></description></item><item><title>Salesforce CDC &amp; Snowflake Dynamic Tables</title><link>https://eduardocaceres.github.io/posts/salesforcecdc/</link><pubDate>Sun, 17 Aug 2025 22:01:19 -0400</pubDate><author>architect@datahubstudio.com (The Simple Architect)</author><guid>https://eduardocaceres.github.io/posts/salesforcecdc/</guid><description>&lt;p>Why it is needed?&lt;/p>
+&lt;p>Change Data Capture is a streaming product on the Lightning Platform that enables you to efficiently integrate your Salesforce data with external systems.&lt;/p>
 &lt;p>Change Data Capture publishes events for changes in Salesforce records corresponding to create, update, delete, and undelete operations to update data in an external system instead of doing periodic exports or API polling.&lt;/p>
 &lt;p>When to use it?&lt;/p>
 &lt;p>Receive notifications of Salesforce record changes, including create, update, delete, and undelete operations.
 Capture all field changes for all records.
 Get broad access to all data regardless of sharing rules.
-Get information about the change in the event header, such as the origin of the change, so you can ignore changes that your client generates.
-Perform data updates using transaction boundaries when more than one operation is part of the same transaction.
-Use a versioned event schema.
-Subscribe to mass changes in a scalable way.
-Get access to retained events for up to 3 days.&lt;/p></description></item></channel></rss>
+Get information about the change in the event header, such as the origin of the change, so you can ignore changes that your client generates.&lt;/p></description></item></channel></rss>
