@@ -1,38 +1,49 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>x</title><link>https://eduardocaceres.github.io/</link><description>Recent content on x</description><generator>Hugo</generator><language>en-us</language><managingEditor>architect@datahubstudio.com (The Simple Architect)</managingEditor><webMaster>architect@datahubstudio.com (The Simple Architect)</webMaster><lastBuildDate>Sat, 30 Aug 2025 16:47:31 -0400</lastBuildDate><atom:link href="https://eduardocaceres.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Snowflake Schema Evolution</title><link>https://eduardocaceres.github.io/posts/schemaevolution/</link><pubDate>Sat, 30 Aug 2025 16:47:31 -0400</pubDate><author>architect@datahubstudio.com (The Simple Architect)</author><guid>https://eduardocaceres.github.io/posts/schemaevolution/</guid><description>&lt;p>Schema Evolution in ❄️ &lt;em>snowflake&lt;/em> Quick Overview&lt;/p>
-&lt;p>&lt;strong>What is Schema Evolution?&lt;/strong>&lt;/p>
-&lt;p>Schema evolution refers to the ability of a database or data platform to adapt to changes in its data structure over time. This can happen in different ways, leading to distinct types of schema changes, including:&lt;/p>
-&lt;blockquote>
-&lt;ul>
-&lt;li>Adding new fields: This is common when new data sources are integrated or when additional attributes for an existing entity are discovered.&lt;/li>
-&lt;li>Removing fields: Occasionally, certain fields may become obsolete, resulting in a cleaner and more efficient data model.&lt;/li>
-&lt;li>Modifying field types: Changing the data type of an existing field can be required if new data does not align with previous definitions.&lt;/li>
-&lt;li>Reordering fields: While less common, this might happen to improve accessibility or usability of the data model.&lt;/li>
-&lt;/ul>&lt;/blockquote>
-&lt;p>&lt;img src="https://eduardocaceres.github.io/assets/pictures/schema-evolution.png" alt="Alt text">&lt;/p></description></item><item><title>Repetition</title><link>https://eduardocaceres.github.io/blog/repetition/</link><pubDate>Tue, 19 Aug 2025 14:04:50 -0400</pubDate><author>architect@datahubstudio.com (The Simple Architect)</author><guid>https://eduardocaceres.github.io/blog/repetition/</guid><description>&lt;p>Discover you purpose in life, find something that makes you wake up every day because your purpose fuels you.&lt;/p>
-&lt;p>Repetition is the mother of all skill. And it’s simple. It really is.&lt;/p></description></item><item><title>Snowflake Dynamic tables</title><link>https://eduardocaceres.github.io/posts/snowflakedynamictables/</link><pubDate>Mon, 18 Aug 2025 12:15:27 -0400</pubDate><author>architect@datahubstudio.com (The Simple Architect)</author><guid>https://eduardocaceres.github.io/posts/snowflakedynamictables/</guid><description>&lt;p>What’s New with Snowflake Dynamic Tables&lt;/p>
-&lt;ol>
-&lt;li>Smarter Incremental Refreshes&lt;/li>
-&lt;/ol>
-&lt;p>Snowflake’s fine-tuned the incremental engine driving Dynamic Tables. Snowflake updates the dynamic table with only the changes since the last refresh, making it ideal for large datasets with frequent small updates. Less data gets reprocessed, so refreshes are quicker and don’t hammer your warehouse as hard.&lt;/p>
-&lt;p>Why it matters: App devs get fresher data for UIs without lag spikes. Data scientists see faster updates for models. Data engineers save on compute costs.&lt;/p></description></item><item><title>About me</title><link>https://eduardocaceres.github.io/about/about/</link><pubDate>Sun, 17 Aug 2025 23:12:12 -0400</pubDate><author>architect@datahubstudio.com (The Simple Architect)</author><guid>https://eduardocaceres.github.io/about/about/</guid><description>&lt;h2 id="education">Education:&lt;/h2>
-&lt;ul>
-&lt;li>M.S, Computer Science – Sacred Heart University (May, 2001)&lt;/li>
-&lt;li>B.S, Software Engineering – UTN (January, 1995)&lt;/li>
-&lt;li>A.S, Physics – NCTC (January, 1997)&lt;/li>
-&lt;/ul>
-&lt;h2 id="courses--certifications">Courses / Certifications&lt;/h2>
-&lt;ul>
-&lt;li>Microsoft : Azure Cloud Associate Trainning -&lt;/li>
-&lt;li>AWS: Certified Cloud Practitioner -&lt;/li>
-&lt;li>Google: Cloud Completed trainning ( Beginner: Introduction to Generative AI) -&lt;/li>
-&lt;li>GE’s prestigious Information Management Leadership Program -&lt;/li>
-&lt;/ul>
-&lt;h2 id="work-experience">Work Experience:&lt;/h2>
-&lt;p>My name is Daniel Càceres a seasoned Enterprise Data Architect with 17+ years of experience architecting scalable, cloud-native data solutions. Expert in designing real-time data pipelines, implementing data governance frameworks, and leveraging AI/ML for predictive analytics.&lt;/p></description></item><item><title>Salesforce CDC &amp; Snowflake Dynamic Tables</title><link>https://eduardocaceres.github.io/posts/salesforcecdc/</link><pubDate>Sun, 17 Aug 2025 22:01:19 -0400</pubDate><author>architect@datahubstudio.com (The Simple Architect)</author><guid>https://eduardocaceres.github.io/posts/salesforcecdc/</guid><description>&lt;p>Why it is needed?&lt;/p>
-&lt;p>Change Data Capture is a streaming product on the Lightning Platform that enables you to efficiently integrate your Salesforce data with external systems.&lt;/p>
-&lt;p>Change Data Capture publishes events for changes in Salesforce records corresponding to create, update, delete, and undelete operations to update data in an external system instead of doing periodic exports or API polling.&lt;/p>
-&lt;p>When to use it?&lt;/p>
-&lt;p>Receive notifications of Salesforce record changes, including create, update, delete, and undelete operations.
-Capture all field changes for all records.
-Get broad access to all data regardless of sharing rules.
-Get information about the change in the event header, such as the origin of the change, so you can ignore changes that your client generates.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>x</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on x</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>architect@datahubstudio.com (The Simple Architect)</managingEditor>
+    <webMaster>architect@datahubstudio.com (The Simple Architect)</webMaster>
+    <lastBuildDate>Sat, 30 Aug 2025 16:47:31 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Snowflake Schema Evolution</title>
+      <link>http://localhost:1313/posts/schemaevolution/</link>
+      <pubDate>Sat, 30 Aug 2025 16:47:31 -0400</pubDate><author>architect@datahubstudio.com (The Simple Architect)</author>
+      <guid>http://localhost:1313/posts/schemaevolution/</guid>
+      <description>&lt;p&gt;Schema Evolution in ❄️ &lt;em&gt;snowflake&lt;/em&gt; Quick Overview&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;What is Schema Evolution?&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Schema evolution refers to the ability of a database or data platform to adapt to changes in its data structure over time. This can happen in different ways, leading to distinct types of schema changes, including:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Adding new fields: This is common when new data sources are integrated or when additional attributes for an existing entity are discovered.&lt;/li&gt;&#xA;&lt;li&gt;Removing fields: Occasionally, certain fields may become obsolete, resulting in a cleaner and more efficient data model.&lt;/li&gt;&#xA;&lt;li&gt;Modifying field types: Changing the data type of an existing field can be required if new data does not align with previous definitions.&lt;/li&gt;&#xA;&lt;li&gt;Reordering fields: While less common, this might happen to improve accessibility or usability of the data model.&lt;/li&gt;&#xA;&lt;/ul&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/assets/pictures/schema-evolution.png&#34; alt=&#34;Alt text&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Repetition</title>
+      <link>http://localhost:1313/blog/repetition/</link>
+      <pubDate>Tue, 19 Aug 2025 14:04:50 -0400</pubDate><author>architect@datahubstudio.com (The Simple Architect)</author>
+      <guid>http://localhost:1313/blog/repetition/</guid>
+      <description>&lt;p&gt;Discover you purpose in life, find something that makes you wake up every day because your purpose fuels you.&lt;/p&gt;&#xA;&lt;p&gt;Repetition is the mother of all skill. And it’s simple. It really is.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Snowflake Dynamic tables</title>
+      <link>http://localhost:1313/posts/snowflakedynamictables/</link>
+      <pubDate>Mon, 18 Aug 2025 12:15:27 -0400</pubDate><author>architect@datahubstudio.com (The Simple Architect)</author>
+      <guid>http://localhost:1313/posts/snowflakedynamictables/</guid>
+      <description>&lt;p&gt;What’s New with Snowflake Dynamic Tables&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Smarter Incremental Refreshes&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Snowflake’s fine-tuned the incremental engine driving Dynamic Tables. Snowflake updates the dynamic table with only the changes since the last refresh, making it ideal for large datasets with frequent small updates. Less data gets reprocessed, so refreshes are quicker and don’t hammer your warehouse as hard.&lt;/p&gt;&#xA;&lt;p&gt;Why it matters: App devs get fresher data for UIs without lag spikes. Data scientists see faster updates for models. Data engineers save on compute costs.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About me</title>
+      <link>http://localhost:1313/about/about/</link>
+      <pubDate>Sun, 17 Aug 2025 23:12:12 -0400</pubDate><author>architect@datahubstudio.com (The Simple Architect)</author>
+      <guid>http://localhost:1313/about/about/</guid>
+      <description>&lt;h2 id=&#34;education&#34;&gt;Education:&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;M.S, Computer Science – Sacred Heart University (May, 2001)&lt;/li&gt;&#xA;&lt;li&gt;B.S, Software Engineering – UTN (January, 1995)&lt;/li&gt;&#xA;&lt;li&gt;A.S, Physics – NCTC (January, 1997)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;courses--certifications&#34;&gt;Courses / Certifications&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Microsoft : Azure Cloud Associate Trainning -&lt;/li&gt;&#xA;&lt;li&gt;AWS: Certified Cloud Practitioner -&lt;/li&gt;&#xA;&lt;li&gt;Google: Cloud Completed trainning ( Beginner: Introduction to Generative AI) -&lt;/li&gt;&#xA;&lt;li&gt;GE’s prestigious Information Management Leadership Program -&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;work-experience&#34;&gt;Work Experience:&lt;/h2&gt;&#xA;&lt;p&gt;My name is Daniel Càceres a seasoned Enterprise Data Architect with 17+ years of experience architecting scalable, cloud-native data solutions. Expert in designing real-time data pipelines, implementing data governance frameworks, and leveraging AI/ML for predictive analytics.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Salesforce CDC &amp; Snowflake Dynamic Tables</title>
+      <link>http://localhost:1313/posts/salesforcecdc/</link>
+      <pubDate>Sun, 17 Aug 2025 22:01:19 -0400</pubDate><author>architect@datahubstudio.com (The Simple Architect)</author>
+      <guid>http://localhost:1313/posts/salesforcecdc/</guid>
+      <description>&lt;p&gt;Why it is needed?&lt;/p&gt;&#xA;&lt;p&gt;Change Data Capture is a streaming product on the Lightning Platform that enables you to efficiently integrate your Salesforce data with external systems.&lt;/p&gt;&#xA;&lt;p&gt;Change Data Capture publishes events for changes in Salesforce records corresponding to create, update, delete, and undelete operations to update data in an external system instead of doing periodic exports or API polling.&lt;/p&gt;&#xA;&lt;p&gt;When to use it?&lt;/p&gt;&#xA;&lt;p&gt;Receive notifications of Salesforce record changes, including create, update, delete, and undelete operations.&#xA;Capture all field changes for all records.&#xA;Get broad access to all data regardless of sharing rules.&#xA;Get information about the change in the event header, such as the origin of the change, so you can ignore changes that your client generates.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
