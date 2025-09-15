@@ -1,240 +1,63 @@
-<!DOCTYPE html>
-<html lang="en-us">
-
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    <title>
-Snowflake Schema Evolution | The Simple Architect
-</title>
-
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Data Architecture">
-
-<meta name="generator" content="Hugo 0.148.2">
-
-
-<link rel="canonical" href="http://localhost:1313/posts/schemaevolution/" >
-
-
-
-
-<link href="/css/style.min.5c1fa9bba2d0e854fe30b3d6316ab0114a2a5f25c9a98275badeadb66f2ec725.css" rel="stylesheet">
-
-
-
-
-</head>
-
-<body>
-
-    <div class="flexWrapper">
-        <header class="headerWrapper">
-    <div class="header">
-        <div>
-            <a class="terminal" href="/">
-                <span>dc@datahubstudio.io ~ $</span>
-            </a>
-        </div>
-        <input class="side-menu" type="checkbox" id="side-menu">
-        <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
-        <nav class="headerLinks">
-            <ul>
-                
-                <li>
-                    <a href="http://localhost:1313/about" title="" >
-                        ~/about</a>
-                </li>
-                
-                <li>
-                    <a href="http://localhost:1313/blog" title="" >
-                        ~/blog</a>
-                </li>
-                
-                <li>
-                    <a href="http://localhost:1313/posts" title="" >
-                        ~/posts</a>
-                </li>
-                
-            </ul>
-        </nav>
-    </div>
-</header>
-
-
-        <div class="content">
-            <main class="main">
-                
-<div class="postWrapper">
-    <h1>Snowflake Schema Evolution</h1>
-    
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <section class="postMetadata">
-        <dl>
-            
-            
-            
-            
-                <dt>published</dt>
-                
-                <dd><time datetime="2025-08-30">August 30, 2025</time></dd>
-            
-            
-                <dt>reading time</dt>
-                <dd>4 minutes</dd>
-            
-        </dl>
-    </section>
-    
-    <div>
-        <p>Schema Evolution in ❄️ <em>snowflake</em> Quick Overview</p>
-<p><strong>What is Schema Evolution?</strong></p>
-<p>Schema evolution refers to the ability of a database or data platform to adapt to changes in its data structure over time. This can happen in different ways, leading to distinct types of schema changes, including:</p>
-<blockquote>
-<ul>
-<li>Adding new fields: This is common when new data sources are integrated or when additional attributes for an existing entity are discovered.</li>
-<li>Removing fields: Occasionally, certain fields may become obsolete, resulting in a cleaner and more efficient data model.</li>
-<li>Modifying field types: Changing the data type of an existing field can be required if new data does not align with previous definitions.</li>
-<li>Reordering fields: While less common, this might happen to improve accessibility or usability of the data model.</li>
-</ul></blockquote>
-<p><img src="/assets/pictures/schema-evolution.png" alt="Alt text"></p>
-<p><strong>Key Features of Schema Evolution in Snowflake</strong></p>
-<blockquote>
-<ul>
-<li>Automatic Column Addition
-When new columns appear in incoming data files, Snowflake can automatically add them to the target table, eliminating the need for manual schema updates.</li>
-<li>Automatic Constraint Adjustments
-If a column marked as NOT NULL is missing in new data files, Snowflake relaxes the constraint to maintain compatibility.</li>
-<li>Flexible Schema Evolution Controls
-Users can enable schema evolution at the table level using the ENABLE_SCHEMA_EVOLUTION parameter, ensuring adaptability while maintaining governance.</li>
-</ul></blockquote>
-<p><strong>Integration with Data Lakehouse</strong></p>
-<p>In a <em>Data Lakehouse</em> setup, Schema Evolution plays a significant role in maintaining data consistency across various stages of data transformation. It facilitates schema-on-read and schema-on-write strategies effectively by allowing the schema to be updated as and when required. This flexibility enhances data discoverability, accessibility, and analysis in a <em>Data Lakehouse</em> environment. Flexible schemas that support evolution are vital for a company&rsquo;s data agility.</p>
-<p><strong>Benefits and Use Cases</strong></p>
-<p>The main advantage of Schema Evolution is its ability to help in adjusting to business transformations. It allows the expansion of data sources, addition of new features to applications, and the integration of third-party systems without disrupting ongoing operations.</p>
-<p><strong>limitations</strong></p>
-<blockquote>
-<ul>
-<li>Limited to COPY INTO and Snowpipe — Schema evolution does not apply to INSERT operations.</li>
-<li>Not supported for Snowpipe Streaming via Ingest SDK — However, the Kafka connector supports schema detection and evolution.</li>
-<li>Column Addition Limits — By default, schema evolution allows up to 10 new columns per COPY operation. Contact Snowflake.</li>
-<li>Even with this limitations is still a great feature to use.</li>
-</ul></blockquote>
-<p><strong>Conclusion</strong></p>
-<p>Snowflake’s schema evolution feature simplifies data integration by automating schema adjustments, reducing manual intervention, and ensuring seamless compatibility with evolving datasets. In fast-paced industry environments, flexible schemas that support evolution are vital for a company&rsquo;s data agility. Moreover, Schema Evolution is a cornerstone for implementing a versioning system in databases.</p>
-<p><strong>Snoflake Documentation</strong>
-
-<a href="https://docs.snowflake.com/en/user-guide/data-load-schema-evolution">reference material snowflake</a>
-</p>
-<p><strong>Practice code example for schema evolution</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">--------------PART 1 Schema EVOLUTION----------------------------------------
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">-----------------Create fileformat-------------------------------------------
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">or</span> <span style="color:#66d9ef">replace</span> FILE FORMAT SNOWFLAKE_LEARNING_DB.Evolution.soccerplayers <span style="color:#66d9ef">TYPE</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;CSV&#39;</span>
-</span></span><span style="display:flex;"><span> COMPRESSION <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;AUTO&#39;</span> FIELD_DELIMITER <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;,&#39;</span> RECORD_DELIMITER <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;\n&#39;</span> 
-</span></span><span style="display:flex;"><span>FIELD_OPTIONALLY_ENCLOSED_BY <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;\042&#39;</span> ERROR_ON_COLUMN_COUNT_MISMATCH <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span> 
-</span></span><span style="display:flex;"><span>PARSE_HEADER<span style="color:#f92672">=</span><span style="color:#66d9ef">true</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">--Create Internal stage to load futball player data -------------------------
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">or</span> <span style="color:#66d9ef">replace</span> STAGE SNOWFLAKE_LEARNING_DB.Evolution.<span style="color:#66d9ef">data</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">----------------List internal stage------------------------------------------
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>LIST <span style="color:#f92672">@</span>SNOWFLAKE_LEARNING_DB.Evolution.<span style="color:#66d9ef">data</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">-----------Verify the file structure of the data file------------------------
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">TABLE</span>(
-</span></span><span style="display:flex;"><span>    INFER_SCHEMA(
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">LOCATION</span><span style="color:#f92672">=&gt;</span><span style="color:#e6db74">&#39;@SNOWFLAKE_LEARNING_DB.Evolution.data&#39;</span>
-</span></span><span style="display:flex;"><span>      , FILE_FORMAT<span style="color:#f92672">=&gt;</span><span style="color:#e6db74">&#39;csv&#39;</span>
-</span></span><span style="display:flex;"><span>      )
-</span></span><span style="display:flex;"><span>    );
-</span></span><span style="display:flex;"><span><span style="color:#75715e">--------Create table using Infer Schema--------------------------------------
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">OR</span> <span style="color:#66d9ef">REPLACE</span> <span style="color:#66d9ef">TABLE</span> futballplayers
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">USING</span> <span style="color:#66d9ef">TEMPLATE</span> (
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">SELECT</span> ARRAY_AGG(object_construct(<span style="color:#f92672">*</span>))
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">TABLE</span>(
-</span></span><span style="display:flex;"><span>        INFER_SCHEMA(
-</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">LOCATION</span><span style="color:#f92672">=&gt;</span><span style="color:#e6db74">&#39;@SNOWFLAKE_LEARNING_DB.Evolution.data&#39;</span>
-</span></span><span style="display:flex;"><span>          , FILE_FORMAT<span style="color:#f92672">=&gt;</span><span style="color:#e6db74">&#39;csv&#39;</span>
-</span></span><span style="display:flex;"><span>        )
-</span></span><span style="display:flex;"><span>      ));
-</span></span><span style="display:flex;"><span><span style="color:#75715e">--------Describe the table structure Version 1 -------------------------------
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">Desc</span> <span style="color:#66d9ef">table</span> futballplayers;
-</span></span><span style="display:flex;"><span><span style="color:#75715e">----------------END PART 1----------------------------------------------------
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">--------------PART 2 Schema EVOLUTION-----------------------------------------
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">------------- Enable schema evolution on the table----------------------------
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> futballplayers <span style="color:#66d9ef">SET</span> ENABLE_SCHEMA_EVOLUTION <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Upload futballplayers2.csv file to stage via UI which has an --------------
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">-- extra column called &#34;branch&#34; and this new column is not part of table(version 1)-- 
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">-- definition.----
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">---Can be loaded via command line as well with the bellow command------
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>PUT <span style="color:#e6db74">&#39;file:///&lt;path_to_local_file&gt;/&lt;filename&gt;&#39;</span> <span style="color:#f92672">@</span>SNOWFLAKE_LEARNING_DB.Evolution.<span style="color:#66d9ef">data</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">---------------------Load data using Copy Into command------------------------
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">COPY</span> <span style="color:#66d9ef">INTO</span>  SNOWFLAKE_LEARNING_DB.Evolution.futballplayers
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> <span style="color:#f92672">@</span>SNOWFLAKE_LEARNING_DB.Evolution.<span style="color:#66d9ef">data</span> FILE_FORMAT <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;CSV&#39;</span> 
-</span></span><span style="display:flex;"><span>MATCH_BY_COLUMN_NAME <span style="color:#f92672">=</span> CASE_INSENSITIVE;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">--futball table has new column &gt; branch as part of its definititon---------
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">Select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> futballplayers;
-</span></span></code></pre></div><p><img src="/assets/pictures/ft-player.png" alt="Alt text"></p>
-<p><strong>Thanks for reading,</strong> 😃 Remember to appreciate the little things in life</p>
-
-    </div>
-</div>
-
-            </main>
-        </div>
-
-
-        <footer class="footer">
-    
-        <span>
-            © 2025 The Simple Architect, Built with
-            <a href="https://gohugo.io" class="footerLink">Hugo</a> and
-            <a href="https://github.com/LordMathis/hugo-theme-nightfall" class="footerLink">Nightfall</a> theme
-        </span>
-    
-</footer>
-    </div>
-
-</body>
-
-</html>
+<!doctype html><html lang=en-us><head><title>Snowflake Schema Evolution | The Simple Architect</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Data Architecture"><meta name=generator content="Hugo 0.148.2"><link rel=canonical href=https://eduardocaceres.github.io/posts/schemaevolution/><link href=/css/style.min.5c1fa9bba2d0e854fe30b3d6316ab0114a2a5f25c9a98275badeadb66f2ec725.css rel=stylesheet></head><body><div class=flexWrapper><header class=headerWrapper><div class=header><div><a class=terminal href=/><span>dc@datahubstudio.io ~ $</span></a></div><input class=side-menu type=checkbox id=side-menu>
+<label class=hamb for=side-menu><span class=hamb-line></span></label><nav class=headerLinks><ul><li><a href=https://eduardocaceres.github.io/about/ title>~/about</a></li><li><a href=https://eduardocaceres.github.io/blog/ title>~/blog</a></li><li><a href=https://eduardocaceres.github.io/posts/ title>~/posts</a></li></ul></nav></div></header><div class=content><main class=main><div class=postWrapper><h1>Snowflake Schema Evolution</h1><section class=postMetadata><dl><dt>published</dt><dd><time datetime=2025-08-30>August 30, 2025</time></dd><dt>reading time</dt><dd>4 minutes</dd></dl></section><div><p>Schema Evolution in ❄️ <em>snowflake</em> Quick Overview</p><p><strong>What is Schema Evolution?</strong></p><p>Schema evolution refers to the ability of a database or data platform to adapt to changes in its data structure over time. This can happen in different ways, leading to distinct types of schema changes, including:</p><blockquote><ul><li>Adding new fields: This is common when new data sources are integrated or when additional attributes for an existing entity are discovered.</li><li>Removing fields: Occasionally, certain fields may become obsolete, resulting in a cleaner and more efficient data model.</li><li>Modifying field types: Changing the data type of an existing field can be required if new data does not align with previous definitions.</li><li>Reordering fields: While less common, this might happen to improve accessibility or usability of the data model.</li></ul></blockquote><p><img src=/assets/pictures/schema-evolution.png alt="Alt text"></p><p><strong>Key Features of Schema Evolution in Snowflake</strong></p><blockquote><ul><li>Automatic Column Addition
+When new columns appear in incoming data files, Snowflake can automatically add them to the target table, eliminating the need for manual schema updates.</li><li>Automatic Constraint Adjustments
+If a column marked as NOT NULL is missing in new data files, Snowflake relaxes the constraint to maintain compatibility.</li><li>Flexible Schema Evolution Controls
+Users can enable schema evolution at the table level using the ENABLE_SCHEMA_EVOLUTION parameter, ensuring adaptability while maintaining governance.</li></ul></blockquote><p><strong>Integration with Data Lakehouse</strong></p><p>In a <em>Data Lakehouse</em> setup, Schema Evolution plays a significant role in maintaining data consistency across various stages of data transformation. It facilitates schema-on-read and schema-on-write strategies effectively by allowing the schema to be updated as and when required. This flexibility enhances data discoverability, accessibility, and analysis in a <em>Data Lakehouse</em> environment. Flexible schemas that support evolution are vital for a company&rsquo;s data agility.</p><p><strong>Benefits and Use Cases</strong></p><p>The main advantage of Schema Evolution is its ability to help in adjusting to business transformations. It allows the expansion of data sources, addition of new features to applications, and the integration of third-party systems without disrupting ongoing operations.</p><p><strong>limitations</strong></p><blockquote><ul><li>Limited to COPY INTO and Snowpipe — Schema evolution does not apply to INSERT operations.</li><li>Not supported for Snowpipe Streaming via Ingest SDK — However, the Kafka connector supports schema detection and evolution.</li><li>Column Addition Limits — By default, schema evolution allows up to 10 new columns per COPY operation. Contact Snowflake.</li><li>Even with this limitations is still a great feature to use.</li></ul></blockquote><p><strong>Conclusion</strong></p><p>Snowflake’s schema evolution feature simplifies data integration by automating schema adjustments, reducing manual intervention, and ensuring seamless compatibility with evolving datasets. In fast-paced industry environments, flexible schemas that support evolution are vital for a company&rsquo;s data agility. Moreover, Schema Evolution is a cornerstone for implementing a versioning system in databases.</p><p><strong>Snoflake Documentation</strong>
+<a href=https://docs.snowflake.com/en/user-guide/data-load-schema-evolution>reference material snowflake</a></p><p><strong>Practice code example for schema evolution</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#75715e>--------------PART 1 Schema EVOLUTION----------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-----------------Create fileformat-------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>or</span> <span style=color:#66d9ef>replace</span> FILE FORMAT SNOWFLAKE_LEARNING_DB.Evolution.soccerplayers <span style=color:#66d9ef>TYPE</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;CSV&#39;</span>
+</span></span><span style=display:flex><span> COMPRESSION <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;AUTO&#39;</span> FIELD_DELIMITER <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;,&#39;</span> RECORD_DELIMITER <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;\n&#39;</span> 
+</span></span><span style=display:flex><span>FIELD_OPTIONALLY_ENCLOSED_BY <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;\042&#39;</span> ERROR_ON_COLUMN_COUNT_MISMATCH <span style=color:#f92672>=</span> <span style=color:#66d9ef>FALSE</span> 
+</span></span><span style=display:flex><span>PARSE_HEADER<span style=color:#f92672>=</span><span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>--Create Internal stage to load futball player data -------------------------
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>or</span> <span style=color:#66d9ef>replace</span> STAGE SNOWFLAKE_LEARNING_DB.Evolution.<span style=color:#66d9ef>data</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>----------------List internal stage------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>LIST <span style=color:#f92672>@</span>SNOWFLAKE_LEARNING_DB.Evolution.<span style=color:#66d9ef>data</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-----------Verify the file structure of the data file------------------------
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>FROM</span> <span style=color:#66d9ef>TABLE</span>(
+</span></span><span style=display:flex><span>    INFER_SCHEMA(
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>LOCATION</span><span style=color:#f92672>=&gt;</span><span style=color:#e6db74>&#39;@SNOWFLAKE_LEARNING_DB.Evolution.data&#39;</span>
+</span></span><span style=display:flex><span>      , FILE_FORMAT<span style=color:#f92672>=&gt;</span><span style=color:#e6db74>&#39;csv&#39;</span>
+</span></span><span style=display:flex><span>      )
+</span></span><span style=display:flex><span>    );
+</span></span><span style=display:flex><span><span style=color:#75715e>--------Create table using Infer Schema--------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>TABLE</span> futballplayers
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>USING</span> <span style=color:#66d9ef>TEMPLATE</span> (
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>SELECT</span> ARRAY_AGG(object_construct(<span style=color:#f92672>*</span>))
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>FROM</span> <span style=color:#66d9ef>TABLE</span>(
+</span></span><span style=display:flex><span>        INFER_SCHEMA(
+</span></span><span style=display:flex><span>          <span style=color:#66d9ef>LOCATION</span><span style=color:#f92672>=&gt;</span><span style=color:#e6db74>&#39;@SNOWFLAKE_LEARNING_DB.Evolution.data&#39;</span>
+</span></span><span style=display:flex><span>          , FILE_FORMAT<span style=color:#f92672>=&gt;</span><span style=color:#e6db74>&#39;csv&#39;</span>
+</span></span><span style=display:flex><span>        )
+</span></span><span style=display:flex><span>      ));
+</span></span><span style=display:flex><span><span style=color:#75715e>--------Describe the table structure Version 1 -------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>Desc</span> <span style=color:#66d9ef>table</span> futballplayers;
+</span></span><span style=display:flex><span><span style=color:#75715e>----------------END PART 1----------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>--------------PART 2 Schema EVOLUTION-----------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>------------- Enable schema evolution on the table----------------------------
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> futballplayers <span style=color:#66d9ef>SET</span> ENABLE_SCHEMA_EVOLUTION <span style=color:#f92672>=</span> <span style=color:#66d9ef>TRUE</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- Upload futballplayers2.csv file to stage via UI which has an --------------
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- extra column called &#34;branch&#34; and this new column is not part of table(version 1)-- 
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- definition.----
+</span></span></span><span style=display:flex><span><span style=color:#75715e>---Can be loaded via command line as well with the bellow command------
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>PUT <span style=color:#e6db74>&#39;file:///&lt;path_to_local_file&gt;/&lt;filename&gt;&#39;</span> <span style=color:#f92672>@</span>SNOWFLAKE_LEARNING_DB.Evolution.<span style=color:#66d9ef>data</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>---------------------Load data using Copy Into command------------------------
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>COPY</span> <span style=color:#66d9ef>INTO</span>  SNOWFLAKE_LEARNING_DB.Evolution.futballplayers
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> <span style=color:#f92672>@</span>SNOWFLAKE_LEARNING_DB.Evolution.<span style=color:#66d9ef>data</span> FILE_FORMAT <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;CSV&#39;</span> 
+</span></span><span style=display:flex><span>MATCH_BY_COLUMN_NAME <span style=color:#f92672>=</span> CASE_INSENSITIVE;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>--futball table has new column &gt; branch as part of its definititon---------
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>Select</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>from</span> futballplayers;
+</span></span></code></pre></div><p><img src=/assets/pictures/ft-player.png alt="Alt text"></p><p><strong>Thanks for reading,</strong> 😃 Remember to appreciate the little things in life</p></div></div></main></div><footer class=footer><span>© 2025 The Simple Architect, Built with
+<a href=https://gohugo.io class=footerLink>Hugo</a> and
+<a href=https://github.com/LordMathis/hugo-theme-nightfall class=footerLink>Nightfall</a> theme</span></footer></div></body></html>
