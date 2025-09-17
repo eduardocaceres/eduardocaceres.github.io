@@ -1,0 +1,150 @@
+<!doctype html><html lang=en-us><head><title>Adjudication Data Model | The Simple Architect</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Data Architecture"><meta name=generator content="Hugo 0.148.2"><link rel=canonical href=https://eduardocaceres.github.io/posts/adjudication-model/><link href=/css/style.min.5c1fa9bba2d0e854fe30b3d6316ab0114a2a5f25c9a98275badeadb66f2ec725.css rel=stylesheet></head><body><div class=flexWrapper><header class=headerWrapper><div class=header><div><a class=terminal href=/><span>dc@datahubstudio.io ~ $</span></a></div><input class=side-menu type=checkbox id=side-menu>
+<label class=hamb for=side-menu><span class=hamb-line></span></label><nav class=headerLinks><ul><li><a href=https://eduardocaceres.github.io/about title>~/about</a></li><li><a href=https://eduardocaceres.github.io/blog title>~/blog</a></li><li><a href=https://eduardocaceres.github.io/posts title>~/posts</a></li></ul></nav></div></header><div class=content><main class=main><div class=postWrapper><h1>Adjudication Data Model</h1><section class=postMetadata><dl><dt>published</dt><dd><time datetime=2025-09-16>September 16, 2025</time></dd><dt>reading time</dt><dd>4 minutes</dd></dl></section><div><p>I&rsquo;ve created a generic comprehensive 🔑🔗🛰️Data Vault 2.0 model and solution
+overview for healthcare claims adjudication system.</p><p>The Data Vault pattern is particularly powerful for healthcare claims because
+it maintains complete data lineage while providing the flexibility to
+integrate new data sources and adapt to changing business rules—exactly
+what&rsquo;s needed for the complex, regulated claims adjudication environment.</p><p>Regulatory compliance and audit trails:
+Data vault’s auditability ensures organizations can maintain detailed historical
+records and data lineage.
+Master Data Management (MDM)
+Data vault serves as a foundational model for MDM initiatives, providing a structured
+way to manage and govern core business entities.</p><p>🔑🔗🛰Data Vault Model Features :
+Core Architecture:</p><p>7 Primary Hubs: Member, Provider, Plan, Claim, Procedure, Diagnosis, Payment
+6 Key Links: Connecting all major relationships in the claims process
+15+ Satellites: Capturing all descriptive data and process states
+Process-Specific Satellites: For pre-adjudication, adjudication, and post-adjudication tracking</p><p>✔️Key Benefits:</p><p>Complete Auditability: Every data change tracked with source system lineage
+Scalable Integration: Parallel loading and independent schema evolution
+Real-Time Processing: Support for both batch and streaming data integration
+Regulatory Compliance: Built-in historical tracking and audit capabilities.</p><p>✨Solution Highlights:
+The model addresses several challenges from the industry:</p><blockquote><p>Data Marts & ODS Integration - Supporting Analytics & Operations</p></blockquote><p>📜Claims Processing Data Mart
+Purpose: Optimized for claims processing analytics and reporting
+Source: Claims Highway data from all processing stages</p><p>📊Financial Data Mart
+Purpose: Financial reporting and payment analytics
+Source: Payment, accumulator, and purse management data</p><p>👥Member Analytics Data Mart
+Purpose: Member behavior and utilization analytics
+Source: Member interactions, claims history, and service utilization</p><p>📈⚕️Provider Performance Data Mart
+Purpose: Provider network management and performance
+Source: Provider validation, claims processing, and payment data</p><p>🧾Provider claim submission quality
+Purpose: Network utilization
+Provider payment patterns
+Credentialing status tracking</p><p>🛡️Fraud & Compliance Data Mart
+Purpose: Fraud detection and regulatory compliance
+Source: Fraud detection, audit, and validation data</p><p>⚙️Operational Data Store (ODS)
+Purpose: Near real-time operational reporting and monitoring
+Source: Current state data from all hubs and satellites</p><p>Reference data vault 2.0 data model, that contains definitions and details.
+Please reach out tome for a copy of the data dictionary.
+<strong>Thanks for reading,</strong> 😃 Remember to appreciate the little things in life</p><blockquote><p>[!IMPORTANT] the model is too big to fit in one page.</p></blockquote><h1 id=healthcare-claims-data-vault-schema>Healthcare Claims Data Vault Schema</h1><h3 id=core-entities-and-relationships>Core Entities and Relationships</h3><!doctype html><html lang=en><head><meta charset=UTF-8><title>mermaid</title></head><body><pre class=mermaid>
+  %%{init: {
+  &#39;theme&#39;: &#39;base&#39;,
+  &#39;themeVariables&#39;: {
+    &#39;fontSize&#39;: &#39;16px&#39;,
+    &#39;fontFamily&#39;: &#39;Arial&#39;,
+    &#39;primaryColor&#39;: &#39;#1d98f5&#39;,
+    &#39;primaryTextColor&#39;: &#39;#000000&#39;,
+    &#39;primaryBorderColor&#39;: &#39;#000000&#39;,
+    &#39;lineColor&#39;: &#39;#000000&#39;
+  },
+  &#39;er&#39;: {
+    &#39;diagramPadding&#39;: 20,
+    &#39;layoutDirection&#39;: &#39;TB&#39;,
+    &#39;minEntityWidth&#39;: 200,
+    &#39;minEntityHeight&#39;: 100,
+    &#39;entityPadding&#39;: 15,
+    &#39;stroke&#39;: &#39;gray&#39;,
+    &#39;fill&#39;: &#39;lightgray&#39;
+  }
+}}%%
+erDiagram
+%% =============================================================================
+%% MEMBER DATA VAULT PATTERN - FOCUSED VIEW
+%% Demonstrates Hub-Satellite Pattern with Member Entity Only
+%% =============================================================================
+
+%% CORE MEMBER HUB - Central Business Entity
+    hub_member {
+        char_32 member_hk PK &#34;Member Hash Key&#34;
+        varchar_50 member_id UK &#34;Business Key - Member ID&#34;
+        timestamp load_dts &#34;Load Date Timestamp&#34;
+        varchar_100 rec_source &#34;Record Source System&#34;
+    }
+
+%% MEMBER DETAIL SATELLITE - Personal Information
+    sat_member_details {
+        char_32 member_hk PK,FK &#34;References hub_member&#34;
+        timestamp load_dts PK &#34;Load Date Timestamp&#34;
+        timestamp load_end_dts &#34;Load End Date&#34;
+        varchar_100 rec_source &#34;Record Source System&#34;
+        char_32 hashdiff &#34;Hash Difference&#34;
+        varchar_200 member_name &#34;Full Name&#34;
+        date date_of_birth &#34;Date of Birth&#34;
+        char_1 gender &#34;Gender Code&#34;
+        varchar_500 address &#34;Mailing Address&#34;
+        varchar_20 phone_number &#34;Phone Number&#34;
+        varchar_100 email &#34;Email Address&#34;
+        char_4 ssn_last_4 &#34;Last 4 SSN Digits&#34;
+    }
+
+%% MEMBER ELIGIBILITY SATELLITE - Coverage Information
+    sat_member_eligibility {
+        char_32 member_hk PK,FK &#34;References hub_member&#34;
+        timestamp load_dts PK &#34;Load Date Timestamp&#34;
+        timestamp load_end_dts &#34;Load End Date&#34;
+        varchar_100 rec_source &#34;Record Source System&#34;
+        char_32 hashdiff &#34;Hash Difference&#34;
+        date effective_date &#34;Coverage Start Date&#34;
+        date termination_date &#34;Coverage End Date&#34;
+        varchar_50 coverage_type &#34;Coverage Type&#34;
+        numeric_10_2 copay_amount &#34;Copay Amount&#34;
+        numeric_10_2 deductible_amount &#34;Deductible Amount&#34;
+        numeric_10_2 out_of_pocket_max &#34;Max Out of Pocket&#34;
+        varchar_20 coverage_status &#34;Active/Inactive Status&#34;
+    }
+
+%% PLAN HUB - Related Entity for Context
+    hub_plan {
+        char_32 plan_hk PK &#34;Plan Hash Key&#34;
+        varchar_50 plan_id UK &#34;Business Key - Plan ID&#34;
+        timestamp load_dts &#34;Load Date Timestamp&#34;
+        varchar_100 rec_source &#34;Record Source System&#34;
+    }
+
+%% PLAN SATELLITE - Plan Information
+    sat_plan_details {
+        char_32 plan_hk PK,FK &#34;References hub_plan&#34;
+        timestamp load_dts PK &#34;Load Date Timestamp&#34;
+        timestamp load_end_dts &#34;Load End Date&#34;
+        varchar_100 rec_source &#34;Record Source System&#34;
+        char_32 hashdiff &#34;Hash Difference&#34;
+        varchar_200 plan_name &#34;Insurance Plan Name&#34;
+        varchar_50 plan_type &#34;Plan Type&#34;
+        varchar_200 payer_name &#34;Insurance Company&#34;
+        boolean prior_auth_required &#34;Prior Auth Required&#34;
+    }
+
+%% MEMBER-PLAN LINK - Enrollment Relationship
+    lnk_member_plan {
+        char_32 member_plan_hk PK &#34;Link Hash Key&#34;
+        char_32 member_hk FK &#34;References hub_member&#34;
+        char_32 plan_hk FK &#34;References hub_plan&#34;
+        timestamp load_dts &#34;Load Date Timestamp&#34;
+        varchar_100 rec_source &#34;Record Source System&#34;
+    }
+
+%% =============================================================================
+%% DATA VAULT RELATIONSHIPS - Hub-Satellite-Link Pattern
+%% =============================================================================
+
+%% HUB TO SATELLITE RELATIONSHIPS (1:Many)
+    hub_member ||--o{ sat_member_details : &#34;member_hk&#34;
+    hub_member ||--o{ sat_member_eligibility : &#34;member_hk&#34;
+    hub_plan ||--o{ sat_plan_details : &#34;plan_hk&#34;
+
+%% HUB TO LINK RELATIONSHIPS (1:Many)
+    hub_member ||--o{ lnk_member_plan : &#34;member_hk&#34;
+    hub_plan ||--o{ lnk_member_plan : &#34;plan_hk&#34;
+</pre></body></html></div></div></main></div><footer class=footer><span>© 2025 The Simple Architect, Built with
+<a href=https://gohugo.io class=footerLink>Hugo</a> and
+<a href=https://github.com/LordMathis/hugo-theme-nightfall class=footerLink>Nightfall</a> theme</span></footer></div><script type=module>
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script></body></html>
