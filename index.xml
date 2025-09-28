@@ -27,15 +27,15 @@ way to manage and govern core business entities.&lt;/p></description></item><ite
 &lt;p>Snowflake’s fine-tuned the incremental engine driving Dynamic Tables. Snowflake updates the dynamic table with only the changes since the last refresh, making it ideal for large datasets with frequent small updates. Less data gets reprocessed, so refreshes are quicker and don’t hammer your warehouse as hard.&lt;/p>
 &lt;p>Why it matters: App devs get fresher data for UIs without lag spikes. Data scientists see faster updates for models. Data engineers save on compute costs.&lt;/p></description></item><item><title>About me</title><link>https://eduardocaceres.github.io/about/about/</link><pubDate>Sun, 17 Aug 2025 23:12:12 -0400</pubDate><author>architect@datahubstudio.com (The Simple Architect)</author><guid>https://eduardocaceres.github.io/about/about/</guid><description>&lt;h2 id="education">Education:&lt;/h2>
 &lt;ul>
-&lt;li>🎓✧M.S, Computer Science – Sacred Heart University (May, 2001)&lt;/li>
+&lt;li>🎓✨M.S, Computer Science – Sacred Heart University (May, 2001)&lt;/li>
 &lt;li>🎓 B.S, Software Engineering – UTN (January, 1995)&lt;/li>
 &lt;li>🎓 A.S, Physics – NCTC (January, 1997)&lt;/li>
 &lt;/ul>
 &lt;h2 id="courses--certifications">Courses / Certifications&lt;/h2>
 &lt;ul>
-&lt;li>Microsoft : Azure Cloud Associate Trainning -&lt;/li>
+&lt;li>Microsoft : Azure Cloud Associate Training -&lt;/li>
 &lt;li>AWS: Certified Cloud Practitioner -&lt;/li>
-&lt;li>Google: Cloud Completed trainning ( Beginner: Introduction to Generative AI) -&lt;/li>
+&lt;li>Google: Cloud Completed ( Beginner: Introduction to Generative AI) -&lt;/li>
 &lt;li>GE’s prestigious Information Management Leadership Program -&lt;/li>
 &lt;/ul>
 &lt;h2 id="work-experience">Work Experience:&lt;/h2>
